@@ -7,7 +7,7 @@ Widget eventPillBuilder(Event event) {
 
     Widget levelTick = new Container(
       height: 12,
-      width: 6,
+      width: 4,
       decoration: BoxDecoration(
         color: getColorForMetal(event.metal),
         border: Border.all(
