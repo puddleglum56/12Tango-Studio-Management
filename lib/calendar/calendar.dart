@@ -115,7 +115,7 @@ class _TableExampleState extends State<TableExample> {
     for (int i = 0; i < numEvents; i++) {
       randomEvents.add(makeRandomEvent(day));
     }
-    return dayCellBuilder(day.day.toString(), randomEvents);
+    return dayCellBuilder(day, randomEvents);
   }
 
   TableRow weekdayNameBuilder() {
