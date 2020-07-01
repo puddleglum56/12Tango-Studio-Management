@@ -94,10 +94,10 @@ class _TableExampleState extends State<TableExample> {
         fit: BoxFit.contain,
         child: Container(
             child: Text(
-          dayNumber,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 14, color: Colors.black, fontWeight: FontWeight.w800),
+              dayNumber,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 14, color: Colors.black, fontWeight: FontWeight.w800),
         )));
 
     cellContents.insert(0, cellHeader);
