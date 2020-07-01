@@ -30,21 +30,24 @@ Widget dayInfoBuilder(context, day, events) {
   Widget infoHeader = new FittedBox(
       fit: BoxFit.contain,
       child: Container(
-          child: Text(
-        day.day.toString(),
-        textAlign: TextAlign.center,
+        width: 400,
+          child: Padding(
+            padding: EdgeInsets.only(left: 10, bottom: 20),
+            child: Text(
+        "July " + day.day.toString(),
+        textAlign: TextAlign.left,
         style: TextStyle(
-            fontSize: 14, color: Colors.black, fontWeight: FontWeight.w800),
-      )));
+            fontSize: 30, color: Colors.black, fontWeight: FontWeight.w800),
+      ))));
 
   infoContents.insert(0, infoHeader);
 
   return new Container(
       decoration:
           BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10))),
-      height: 300,
+      height: 400,
       child: Padding(
-          padding: EdgeInsets.all(3), child: Column(children: infoContents)));
+          padding: EdgeInsets.all(3), child: ListView(children: infoContents)));
 }
 
 Widget eventCardBuilder(Event event) {
@@ -89,7 +92,7 @@ Widget eventCardBuilder(Event event) {
   return new Padding(
       padding: EdgeInsets.all(10),
       child: Container(
-          height: 100,
+          height: 200,
           decoration: BoxDecoration(
               color: getColorForDance(event.dance),
               borderRadius: BorderRadius.all(Radius.circular(10))),
