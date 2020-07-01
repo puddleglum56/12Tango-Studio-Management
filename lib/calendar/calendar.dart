@@ -271,12 +271,16 @@ class _TableExampleState extends State<TableExample> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Column(
-                children: [
-                  Padding(child: Text('July', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20)), padding: EdgeInsets.only(bottom: 14)),
-                  Table(
-                  children: monthBuilder(),
-            )])));
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+            child: Column(children: [
+              Padding(
+                  child: Text('July',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w800, fontSize: 20)),
+                  padding: EdgeInsets.only(bottom: 14)),
+              Table(
+                children: monthBuilder(),
+              )
+            ])));
   }
 }
