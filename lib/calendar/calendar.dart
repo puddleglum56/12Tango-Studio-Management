@@ -102,10 +102,12 @@ class _TableExampleState extends State<TableExample> {
 
     cellContents.insert(0, cellHeader);
 
-    return new Container(
+    return new InkWell(
+      onTap: () {},
+      child: Container(
         height: 90,
         child: Padding(
-            padding: EdgeInsets.all(3), child: Column(children: cellContents)));
+            padding: EdgeInsets.all(3), child: Column(children: cellContents))));
   }
 
   Color getColorForDance(String dance) {
