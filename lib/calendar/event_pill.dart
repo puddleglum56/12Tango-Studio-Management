@@ -28,7 +28,7 @@ Widget eventPillBuilder(Event event) {
       child: Text(getDanceAbbreviation(event.dance),
           textAlign: TextAlign.left,
           style: TextStyle(
-              fontSize: 12, color: Colors.white, fontWeight: FontWeight.w800)),
+              fontSize: 10, color: Colors.white, fontWeight: FontWeight.w800)),
     );
 
     eventPillContent.insert(0, danceAbbreviation);
