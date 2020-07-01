@@ -17,11 +17,11 @@ class DayCell extends StatefulWidget {
 class DayCellState extends State<DayCell> {
   @override
   Widget build(BuildContext context) {
-    return dayCellBuilder(widget.day, widget.events);
+    return dayCellBuilder(context, widget.day, widget.events);
   }
 }
 
-Widget dayCellBuilder(DateTime day, events) {
+Widget dayCellBuilder(context, DateTime day, events) {
   List<Widget> cellContents = [];
   events.forEach((event) {
     cellContents.add(eventPillBuilder(event));
@@ -40,7 +40,11 @@ Widget dayCellBuilder(DateTime day, events) {
   cellContents.insert(0, cellHeader);
 
   return new InkWell(
-      onTap: () {},
+      onTap: () {
+        showBottomSheet(
+            context: context,
+            builder: (context) => Container(child: DayInfo(day: day, events: events)));
+      },
       child: Container(
           decoration: BoxDecoration(
               border: todayStyle(day),
