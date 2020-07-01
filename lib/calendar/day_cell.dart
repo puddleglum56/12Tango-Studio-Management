@@ -49,7 +49,7 @@ Widget dayCellBuilder(context, DateTime day, events) {
           decoration: BoxDecoration(
               border: todayStyle(day),
               borderRadius: BorderRadius.all(Radius.circular(3))),
-          height: 90,
+          height: 100,
           child: Padding(
               padding: EdgeInsets.all(3),
               child: Column(children: cellContents))));

@@ -60,10 +60,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(40),
+        child: AppBar(
         backgroundColor: Colors.red,
         title: Text(pageTitles[_selectedIndex]),
-      ),
+      )),
       body: Center(
         child: PageView(
           controller: pageController,

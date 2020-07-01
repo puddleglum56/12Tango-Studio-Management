@@ -110,7 +110,7 @@ class _TableExampleState extends State<TableExample> {
 
   Widget dayBuilder(DateTime day) {
     // return dayCellBuilder(day.day.toString(), getEventsForDay(day));
-    int numEvents = new Random().nextInt(2) + 1;
+    int numEvents = new Random().nextInt(3) + 1;
     List<Event> randomEvents = [];
     for (int i = 0; i < numEvents; i++) {
       randomEvents.add(makeRandomEvent(day));
@@ -150,13 +150,13 @@ class _TableExampleState extends State<TableExample> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
             child: Column(children: [
               Padding(
                   child: Text('July',
                       style:
                           TextStyle(fontWeight: FontWeight.w800, fontSize: 20)),
-                  padding: EdgeInsets.only(bottom: 14)),
+                  padding: EdgeInsets.only(bottom: 10)),
               Table(
                 children: monthBuilder(),
               )
