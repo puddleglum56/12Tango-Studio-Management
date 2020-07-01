@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:strings/strings.dart';
 
@@ -97,7 +99,29 @@ Widget eventCardBuilder(Event event) {
               color: getColorForDance(event.dance),
               borderRadius: BorderRadius.all(Radius.circular(10))),
           child: Column(children: <Widget>[
-            Row(children: [danceAbbreviation]),
-            Row(children: levelInfo)
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              danceAbbreviation,
+              Padding(
+                  padding: EdgeInsets.all(10),
+                  child: FlatButton(
+                      child: Text("I'm going!",
+                          style: TextStyle(color: Colors.white)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide(color: Colors.white, width: 5))))
+            ]),
+            Row(children: levelInfo),
+            Row(children: [
+              Padding(
+                padding: EdgeInsets.only(left: 10, right: 10, top: 20),
+                child: Text(
+                    "Spots Taken: " + new Random().nextInt(5).toString() + "/5",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800)),
+              )
+            ])
           ])));
 }
