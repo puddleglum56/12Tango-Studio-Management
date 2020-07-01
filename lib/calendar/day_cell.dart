@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../types.dart';
+import 'day_info.dart';
 import 'event_pill.dart';
 
 class DayCell extends StatefulWidget {
