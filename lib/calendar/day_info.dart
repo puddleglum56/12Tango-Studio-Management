@@ -40,51 +40,61 @@ Widget dayInfoBuilder(context, day, events) {
   infoContents.insert(0, infoHeader);
 
   return new Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(10))),
-          height: 90,
-          child: Padding(
-              padding: EdgeInsets.all(3),
-              child: Column(children: infoContents)));
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10))),
+      height: 300,
+      child: Padding(
+          padding: EdgeInsets.all(3), child: Column(children: infoContents)));
 }
 
 Widget eventCardBuilder(Event event) {
-    List<Widget> eventPillContent = [];
+  List<Widget> levelInfo = [];
 
-    Widget levelTick = new Container(
-      height: 12,
-      width: 6,
-      decoration: BoxDecoration(
-        color: getColorForMetal(event.metal),
-        border: Border.all(
-          width: 1,
-          color: Colors.white,
-        ),
-        borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(3), top: Radius.circular(3)),
+  Widget levelTick = new Container(
+    height: 30,
+    width: 15,
+    decoration: BoxDecoration(
+      color: getColorForMetal(event.metal),
+      border: Border.all(
+        width: 2,
+        color: Colors.white,
       ),
-    );
+      borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(12), top: Radius.circular(12)),
+    ),
+  );
 
-    for (var i = 0; i < event.level; i++) {
-      eventPillContent.add(levelTick);
-    }
-
-    Widget danceAbbreviation = new Padding(
-      padding: EdgeInsets.only(left: 3, right: 1),
-      child: Text(capitalize(event.dance),
-          textAlign: TextAlign.left,
-          style: TextStyle(
-              fontSize: 12, color: Colors.white, fontWeight: FontWeight.w800)),
-    );
-
-    eventPillContent.insert(0, danceAbbreviation);
-
-    return new Padding(
-        padding: EdgeInsets.symmetric(vertical: 2),
-        child: Container(
-            height: 20,
-            decoration: BoxDecoration(
-                color: getColorForDance(event.dance),
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            child: Row(children: eventPillContent)));
+  for (var i = 0; i < event.level; i++) {
+    levelInfo.add(levelTick);
   }
+
+  Widget danceAbbreviation = new Padding(
+    padding: EdgeInsets.all(8),
+    child: Text(capitalize(event.dance),
+        textAlign: TextAlign.left,
+        style: TextStyle(
+            fontSize: 24, color: Colors.white, fontWeight: FontWeight.w800)),
+  );
+
+  Widget levelHeader = new Padding(
+    padding: EdgeInsets.only(left: 10, right: 10),
+    child: Text("Level:",
+        textAlign: TextAlign.left,
+        style: TextStyle(
+            fontSize: 24, color: Colors.white, fontWeight: FontWeight.w800)),
+  );
+
+  levelInfo.insert(0, levelHeader);
+
+  return new Padding(
+      padding: EdgeInsets.all(10),
+      child: Container(
+          height: 100,
+          decoration: BoxDecoration(
+              color: getColorForDance(event.dance),
+              borderRadius: BorderRadius.all(Radius.circular(10))),
+          child: Column(children: <Widget>[
+            Row(children: [danceAbbreviation]),
+            Row(children: levelInfo)
+          ])));
+}
