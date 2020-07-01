@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:strings/strings.dart';
 
 import '../types.dart';
 import 'event_pill.dart';
@@ -70,7 +71,7 @@ Widget eventCardBuilder(Event event) {
 
     Widget danceAbbreviation = new Padding(
       padding: EdgeInsets.only(left: 3, right: 1),
-      child: Text(getDanceAbbreviation(event.dance),
+      child: Text(capitalize(event.dance),
           textAlign: TextAlign.left,
           style: TextStyle(
               fontSize: 12, color: Colors.white, fontWeight: FontWeight.w800)),

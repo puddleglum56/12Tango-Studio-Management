@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  strings: any
   date_utils: any
   keyboard_visibility: any
   tuple: any
