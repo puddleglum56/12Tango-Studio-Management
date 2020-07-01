@@ -143,7 +143,7 @@ class _TableExampleState extends State<TableExample> {
       "salsa": Colors.red,
       "hustle": Colors.green,
       "waltz": Colors.blue,
-      "samba": Colors.yellow,
+      "samba": Colors.amber,
       "rumba": Colors.purple,
       "swing": Colors.pink[300],
     };
