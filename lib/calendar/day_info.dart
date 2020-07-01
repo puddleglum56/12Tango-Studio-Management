@@ -32,15 +32,17 @@ Widget dayInfoBuilder(context, day, events) {
   Widget infoHeader = new FittedBox(
       fit: BoxFit.contain,
       child: Container(
-        width: 400,
+          width: 400,
           child: Padding(
-            padding: EdgeInsets.only(top: 10, left: 10, bottom: 20),
-            child: Text(
-        "July " + day.day.toString(),
-        textAlign: TextAlign.left,
-        style: TextStyle(
-            fontSize: 30, color: Colors.black, fontWeight: FontWeight.w800),
-      ))));
+              padding: EdgeInsets.only(top: 10, left: 10, bottom: 20),
+              child: Text(
+                "July " + day.day.toString(),
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800),
+              ))));
 
   infoContents.insert(0, infoHeader);
 
