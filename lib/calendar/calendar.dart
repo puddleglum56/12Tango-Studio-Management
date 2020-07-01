@@ -118,20 +118,23 @@ class _TableExampleState extends State<TableExample> {
         fit: BoxFit.contain,
         child: Container(
             child: Text(
-              dayNumber,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 14, color: Colors.black, fontWeight: FontWeight.w800),
+          dayNumber,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: 14, color: Colors.black, fontWeight: FontWeight.w800),
         )));
 
     cellContents.insert(0, cellHeader);
 
     return new InkWell(
-      onTap: () {},
-      child: Container(
-        height: 90,
-        child: Padding(
-            padding: EdgeInsets.all(3), child: Column(children: cellContents))));
+        onTap: () {},
+        child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(3))),
+            height: 90,
+            child: Padding(
+                padding: EdgeInsets.all(3),
+                child: Column(children: cellContents))));
   }
 
   Color getColorForDance(String dance) {
