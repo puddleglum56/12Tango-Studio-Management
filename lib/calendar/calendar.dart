@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:date_utils/date_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +21,6 @@ class Event {
 }
 
 class TableExample extends StatefulWidget {
-  
   @override
   _TableExampleState createState() => _TableExampleState();
 }
@@ -36,6 +37,29 @@ class _TableExampleState extends State<TableExample> {
 
   DateTime makeDateTime(int year, int month, int day, int hour) {
     return DateTime(year, month, day, hour, 0, 0, 0, 0);
+  }
+
+  Event makeRandomEvent(day) {
+    List<String> availableDances = [
+      "tango",
+      "salsa",
+      "hustle",
+      "waltz",
+      "samba",
+      "rumba",
+      "swing",
+    ];
+
+    List<String> availableMetals = ["bronze", "silver", "gold"];
+
+    List<int> availableLevels = [1, 2, 3, 4];
+
+    return new Event(
+        day,
+        day,
+        availableMetals[new Random().nextInt(availableMetals.length)],
+        availableLevels[new Random().nextInt(availableLevels.length)],
+        availableDances[new Random().nextInt(availableDances.length)]);
   }
 
   List<Event> makeInitialEvents() {
@@ -197,12 +221,19 @@ class _TableExampleState extends State<TableExample> {
             child: Text(
               title,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 5, fontWeight: FontWeight.bold, color: Colors.grey),
+              style: TextStyle(
+                  fontSize: 5, fontWeight: FontWeight.bold, color: Colors.grey),
             )));
   }
 
   Widget dayBuilder(DateTime day) {
-    return dayCellBuilder(day.day.toString(), getEventsForDay(day));
+    // return dayCellBuilder(day.day.toString(), getEventsForDay(day));
+    int numEvents = new Random().nextInt(2) + 1;
+    List<Event> randomEvents = [];
+    for (int i = 0; i < numEvents; i++) {
+      randomEvents.add(makeRandomEvent(day));
+    }
+    return dayCellBuilder(day.day.toString(), randomEvents);
   }
 
   TableRow weekdayNameBuilder() {
