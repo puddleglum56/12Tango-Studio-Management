@@ -32,7 +32,7 @@ Widget dayInfoBuilder(context, day, events) {
       child: Container(
         width: 400,
           child: Padding(
-            padding: EdgeInsets.only(left: 10, bottom: 20),
+            padding: EdgeInsets.only(top: 10, left: 10, bottom: 20),
             child: Text(
         "July " + day.day.toString(),
         textAlign: TextAlign.left,
