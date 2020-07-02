@@ -97,7 +97,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.red,
+        selectedItemColor: Colors.red[700],
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
       ),

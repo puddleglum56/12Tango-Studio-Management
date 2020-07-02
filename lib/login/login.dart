@@ -76,7 +76,7 @@ class LoginPageState extends State<LoginPage> {
 
     final loginButton = Material(
       elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
+      borderRadius: BorderRadius.circular(25.0),
       color: Colors.red,
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -96,7 +96,7 @@ class LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Center(
         child: Container(
-          color: Colors.red,
+          decoration: BoxDecoration(gradient: LinearGradient(colors: [Colors.red, Colors.red[900]])),
           child: Align(
             alignment: Alignment.bottomCenter,
             child:
@@ -119,7 +119,7 @@ class LoginPageState extends State<LoginPage> {
                     child: Material(
                       elevation: 5.0,
                       color: Color(0xfa83232f),
-                      borderRadius: BorderRadius.circular(30.0),
+                      borderRadius: BorderRadius.circular(20.0),
                       child:
                         Container(
                           padding: const EdgeInsets.all(20),

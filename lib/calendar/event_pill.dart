@@ -38,12 +38,12 @@ Widget eventPillBuilder(Event event, bool isCurrentWeek) {
       child: Container(
           height: 20,
           decoration: BoxDecoration(
-              color: getColorForDance(event.dance, isCurrentWeek),
+              gradient: LinearGradient(colors: getColorForDance(event.dance, isCurrentWeek)),
               borderRadius: BorderRadius.all(Radius.circular(3))),
           child: Row(children: eventPillContent)));
 }
 
-Color getColorForDance(String dance, bool isCurrentWeek) {
+List<Color> getColorForDance(String dance, bool isCurrentWeek) {
   if (isCurrentWeek) {
     return getColorForDanceCurrentWeek(dance);
   } else {
@@ -51,29 +51,29 @@ Color getColorForDance(String dance, bool isCurrentWeek) {
   }
 }
 
-Color getColorForDanceCurrentWeek(String dance) {
+List<Color> getColorForDanceCurrentWeek(String dance) {
   Map colorForDance = {
-    "tango": Colors.orange,
-    "salsa": Colors.red,
-    "hustle": Colors.green,
-    "waltz": Colors.blue,
-    "samba": Colors.amber,
-    "rumba": Colors.purple,
-    "swing": Colors.pink[200],
+    "tango": [Colors.orange, Colors.orange[700]],
+    "salsa": [Colors.red,Colors.red[700]],
+    "hustle": [Colors.green,Colors.green[700]],
+    "waltz": [Colors.blue,Colors.blue[700]],
+    "samba": [Colors.amber,Colors.amber[700]],
+    "rumba": [Colors.purple,Colors.purple[700]],
+    "swing": [Colors.pink[200],Colors.pink[400]],
   };
 
   return colorForDance[dance];
 }
 
-Color getColorForDanceOtherWeek(String dance) {
+List<Color> getColorForDanceOtherWeek(String dance) {
   Map colorForDance = {
-    "tango": Colors.orange[300],
-    "salsa": Colors.red[300],
-    "hustle": Colors.green[300],
-    "waltz": Colors.blue[300],
-    "samba": Colors.amber[300],
-    "rumba": Colors.purple[300],
-    "swing": Colors.pink[100],
+    "tango": [Colors.orange[300], Colors.orange[300]],
+    "salsa": [Colors.red[300],Colors.red[300]],
+    "hustle": [Colors.green[300],Colors.green[300]],
+    "waltz": [Colors.blue[300],Colors.blue[300]],
+    "samba": [Colors.amber[300],Colors.amber[300]],
+    "rumba": [Colors.purple[300],Colors.purple[300]],
+    "swing": [Colors.pink[200],Colors.pink[200]],
   };
 
   return colorForDance[dance];

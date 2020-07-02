@@ -105,7 +105,7 @@ class EventCardState extends State<EventCard> {
       if (isFull()) {
         return Text("Full",
             style: TextStyle(
-                color: getColorForDanceCurrentWeek(event.dance),
+                color: getColorForDanceCurrentWeek(event.dance)[1],
                 fontSize: 18,
                 fontWeight: FontWeight.bold));
       }
@@ -133,7 +133,7 @@ class EventCardState extends State<EventCard> {
         child: Container(
             height: 200,
             decoration: BoxDecoration(
-                color: getColorForDanceCurrentWeek(event.dance),
+                gradient: LinearGradient(colors: getColorForDanceCurrentWeek(event.dance)),
                 borderRadius: BorderRadius.all(Radius.circular(10))),
             child: Column(children: <Widget>[
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
