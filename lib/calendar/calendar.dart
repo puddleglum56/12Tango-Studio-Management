@@ -108,14 +108,14 @@ class _TableExampleState extends State<TableExample> {
             )));
   }
 
-  Widget dayBuilder(DateTime day) {
+  Widget dayBuilder(DateTime day, bool isCurrentWeek) {
     // return dayCellBuilder(day.day.toString(), getEventsForDay(day));
     int numEvents = new Random().nextInt(3) + 1;
     List<Event> randomEvents = [];
     for (int i = 0; i < numEvents; i++) {
       randomEvents.add(makeRandomEvent(day));
     }
-    return DayCell(day: day, events: randomEvents);
+    return DayCell(day: day, events: randomEvents, isCurrentWeek: isCurrentWeek);
   }
 
   TableRow weekdayNameBuilder() {
@@ -128,6 +128,8 @@ class _TableExampleState extends State<TableExample> {
   }
 
   TableRow weekBuilder(DateTime dayInWeek) {
+    bool isCurrentWeek = false;
+
     List<Widget> weekDays = [];
 
     Iterable<DateTime> daysInWeek = Utils.daysInRange(
@@ -135,7 +137,17 @@ class _TableExampleState extends State<TableExample> {
 
     daysInWeek.forEach(
       (day) {
-        weekDays.add(dayBuilder(day));
+        if (day.day == today().day &&
+            day.month == today().month &&
+            day.year == today().year) {
+          isCurrentWeek = true;
+        }
+      },
+    );
+
+    daysInWeek.forEach(
+      (day) {
+        weekDays.add(dayBuilder(day, isCurrentWeek));
       },
     );
 

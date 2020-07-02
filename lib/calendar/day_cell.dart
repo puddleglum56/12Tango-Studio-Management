@@ -7,8 +7,9 @@ import 'event_pill.dart';
 class DayCell extends StatefulWidget {
   DateTime day;
   List<Event> events;
+  bool isCurrentWeek;
 
-  DayCell({Key key, this.day, this.events}) : super(key: key);
+  DayCell({Key key, this.day, this.events, this.isCurrentWeek}) : super(key: key);
 
   @override
   DayCellState createState() => DayCellState();
@@ -17,14 +18,14 @@ class DayCell extends StatefulWidget {
 class DayCellState extends State<DayCell> {
   @override
   Widget build(BuildContext context) {
-    return dayCellBuilder(context, widget.day, widget.events);
+    return dayCellBuilder(context, widget.day, widget.events, widget.isCurrentWeek);
   }
 }
 
-Widget dayCellBuilder(context, DateTime day, events) {
+Widget dayCellBuilder(context, DateTime day, events, bool isCurrentWeek) {
   List<Widget> cellContents = [];
   events.forEach((event) {
-    cellContents.add(eventPillBuilder(event));
+    cellContents.add(eventPillBuilder(event, isCurrentWeek));
   });
 
   Widget cellHeader = new FittedBox(
@@ -43,7 +44,8 @@ Widget dayCellBuilder(context, DateTime day, events) {
       onTap: () {
         showBottomSheet(
             context: context,
-            builder: (context) => Container(child: DayInfo(day: day, events: events)));
+            builder: (context) =>
+                Container(child: DayInfo(day: day, events: events)));
       },
       child: Container(
           decoration: BoxDecoration(

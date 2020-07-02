@@ -61,7 +61,7 @@ Widget eventCardBuilder(Event event) {
     height: 30,
     width: 15,
     decoration: BoxDecoration(
-      color: getColorForMetal(event.metal),
+      color: getColorForMetalCurrentWeek(event.metal),
       border: Border.all(
         width: 2,
         color: Colors.white,
@@ -98,7 +98,7 @@ Widget eventCardBuilder(Event event) {
       child: Container(
           height: 200,
           decoration: BoxDecoration(
-              color: getColorForDance(event.dance),
+              color: getColorForDanceCurrentWeek(event.dance),
               borderRadius: BorderRadius.all(Radius.circular(10))),
           child: Column(children: <Widget>[
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
