@@ -42,7 +42,7 @@ class _TableExampleState extends State<TableExample> {
 
     return new Event(
         day,
-        day,
+        day.add(new Duration(hours: 1)),
         availableMetals[new Random().nextInt(availableMetals.length)],
         availableLevels[new Random().nextInt(availableLevels.length)],
         availableDances[new Random().nextInt(availableDances.length)]);
