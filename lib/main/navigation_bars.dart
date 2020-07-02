@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:hello_world/calendar/calendar.dart';
 
 import 'package:flutter/material.dart';
@@ -61,8 +62,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(40),
-        child: AppBar(
-        backgroundColor: Colors.red,
+        child: GradientAppBar(
+        gradient: LinearGradient(colors: [Colors.red, Colors.red[900]]),
         title: Text(pageTitles[_selectedIndex]),
       )),
       body: Center(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/main/bottom_navigation_bar.dart';
+import 'package:hello_world/main/navigation_bars.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
 
 class LoginPage extends StatefulWidget {
