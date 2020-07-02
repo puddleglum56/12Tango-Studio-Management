@@ -7,7 +7,7 @@ import '../types.dart';
 import 'event_pill.dart';
 
 class EventCard extends StatefulWidget {
-  Event event;
+  final Event event;
 
   EventCard({Key key, this.event}) : super(key: key);
 
