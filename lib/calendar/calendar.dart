@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 import '../types.dart';
 import 'day_cell.dart';
 
-class TableExample extends StatefulWidget {
+class Calendar extends StatefulWidget {
   @override
-  _TableExampleState createState() => _TableExampleState();
+  CalendarState createState() => CalendarState();
 }
 
-class _TableExampleState extends State<TableExample> {
+class CalendarState extends State<Calendar> {
   final calendarUtils = new Utils();
   List<Event> events = new List<Event>();
 

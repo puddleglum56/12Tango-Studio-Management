@@ -35,7 +35,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       'Index 0: Feed',
       style: optionStyle,
     ),
-    TableExample(),
+    Calendar(),
     Text(
       'Index 2: Skills',
       style: optionStyle,
