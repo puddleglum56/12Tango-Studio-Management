@@ -17,7 +17,8 @@ class EventCard extends StatefulWidget {
 
 class EventCardState extends State<EventCard> {
   bool going = false;
-  int spotsTaken = 3;
+  int spotsTaken = new Random().nextInt(5) + 1;
+  int spotsAvailable = 5;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,14 @@ class EventCardState extends State<EventCard> {
         spotsTaken -= 1;
       }
     });
+  }
+
+  bool isFull() {
+    if (spotsTaken == spotsAvailable) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   Widget eventCardBuilder(context, Event event) {
@@ -74,19 +83,33 @@ class EventCardState extends State<EventCard> {
 
     Widget spotsTakenHeader = Padding(
       padding: EdgeInsets.only(left: 10, right: 10, top: 20),
-      child: Text("Spots Taken: " + spotsTaken.toString() + "/5",
+      child: Text(
+          "Spots Taken: " +
+              spotsTaken.toString() +
+              "/" +
+              spotsAvailable.toString(),
           textAlign: TextAlign.left,
           style: TextStyle(
               fontSize: 24, color: Colors.white, fontWeight: FontWeight.w800)),
     );
 
+    Widget goingButtonContent() {
+      if (isFull()) {
+        return Text("Full", style: TextStyle(color: getColorForDanceCurrentWeek(event.dance), fontSize: 18, fontWeight: FontWeight.bold));
+      }
+      if (going) {
+        return Icon(Icons.done, color: Colors.white);
+      } else {
+        return Text("I'm going!", style: TextStyle(color: Colors.white));
+      }
+    }
+
     Widget goingButton = Padding(
         padding: EdgeInsets.all(10),
         child: FlatButton(
-            child: !going
-                ? Text("I'm going!", style: TextStyle(color: Colors.white))
-                : Icon(Icons.done, color: Colors.white),
-            onPressed: toggleGoing,
+            child: goingButtonContent(),
+            onPressed: isFull() ? null : toggleGoing,
+            disabledColor: Colors.white,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
                 side: BorderSide(color: Colors.white, width: 5))));
