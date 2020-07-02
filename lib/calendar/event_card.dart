@@ -65,9 +65,17 @@ class EventCardState extends State<EventCard> {
       levelInfo.add(levelTick);
     }
 
-    Widget danceAbbreviation = new Padding(
+    Widget danceHeader = new Padding(
       padding: EdgeInsets.all(8),
       child: Text(capitalize(event.dance) + " Group Class",
+          textAlign: TextAlign.left,
+          style: TextStyle(
+              fontSize: 24, color: Colors.white, fontWeight: FontWeight.w800)),
+    );
+
+    Widget timeHeader = new Padding(
+      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+      child: Text("Time: " + TimeOfDay.fromDateTime(event.startDate).format(context)+"-"+TimeOfDay.fromDateTime(event.endDate).format(context),
           textAlign: TextAlign.left,
           style: TextStyle(
               fontSize: 24, color: Colors.white, fontWeight: FontWeight.w800)),
@@ -129,9 +137,10 @@ class EventCardState extends State<EventCard> {
                 borderRadius: BorderRadius.all(Radius.circular(10))),
             child: Column(children: <Widget>[
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                danceAbbreviation,
+                danceHeader,
                 goingButton,
               ]),
+              Row(children: [timeHeader]),
               Row(children: levelInfo),
               Row(children: [spotsTakenHeader])
             ])));
