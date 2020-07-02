@@ -96,7 +96,7 @@ class LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Center(
         child: Container(
-          decoration: BoxDecoration(gradient: LinearGradient(colors: [Colors.red, Colors.red[900]])),
+          decoration: BoxDecoration(gradient: LinearGradient(colors: [Colors.red, Colors.red[900]], begin: Alignment.bottomLeft, end: Alignment.topRight)),
           child: Align(
             alignment: Alignment.bottomCenter,
             child:

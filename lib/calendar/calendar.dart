@@ -161,7 +161,15 @@ class CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.white, Colors.grey[100]],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+            )
+          ),
+          child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
             child: Column(children: [
               Padding(
@@ -172,6 +180,6 @@ class CalendarState extends State<Calendar> {
               Table(
                 children: monthBuilder(),
               )
-            ])));
+            ]))));
   }
 }

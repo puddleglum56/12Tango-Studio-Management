@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
+import 'package:hello_world/account/account.dart';
 import 'package:hello_world/calendar/calendar.dart';
 
 import 'package:flutter/material.dart';
+import 'package:hello_world/feed/feed.dart';
+import 'package:hello_world/skills/skills.dart';
 
 class MyStatefulWidget extends StatefulWidget {
   MyStatefulWidget({Key key}) : super(key: key);
@@ -32,19 +35,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   static List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Feed',
-      style: optionStyle,
-    ),
+    Feed(),
     Calendar(),
-    Text(
-      'Index 2: Skills',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Account',
-      style: optionStyle,
-    ),
+    Skills(),
+    Account(),
   ];
 
   static List<String> pageTitles = ["Feed", "Calendar", "Skills", "Account"];
