@@ -17,7 +17,7 @@ class EventCard extends StatefulWidget {
 
 class EventCardState extends State<EventCard> {
   bool going = false;
-  int spotsTaken = new Random().nextInt(5) + 1;
+  int otherSpotsTaken = new Random().nextInt(5) + 1;
   int spotsAvailable = 5;
 
   @override
@@ -28,16 +28,16 @@ class EventCardState extends State<EventCard> {
   toggleGoing() {
     setState(() {
       going = !going;
-      if (going) {
-        spotsTaken += 1;
-      } else {
-        spotsTaken -= 1;
-      }
     });
   }
 
+  int spotsTaken() {
+    int newSpotsTaken = going ? 1 : 0;
+    return newSpotsTaken + otherSpotsTaken;
+  }
+
   bool isFull() {
-    if (spotsTaken == spotsAvailable) {
+    if (otherSpotsTaken == spotsAvailable) {
       return true;
     } else {
       return false;
@@ -85,7 +85,7 @@ class EventCardState extends State<EventCard> {
       padding: EdgeInsets.only(left: 10, right: 10, top: 20),
       child: Text(
           "Spots Taken: " +
-              spotsTaken.toString() +
+              spotsTaken().toString() +
               "/" +
               spotsAvailable.toString(),
           textAlign: TextAlign.left,
@@ -95,7 +95,11 @@ class EventCardState extends State<EventCard> {
 
     Widget goingButtonContent() {
       if (isFull()) {
-        return Text("Full", style: TextStyle(color: getColorForDanceCurrentWeek(event.dance), fontSize: 18, fontWeight: FontWeight.bold));
+        return Text("Full",
+            style: TextStyle(
+                color: getColorForDanceCurrentWeek(event.dance),
+                fontSize: 18,
+                fontWeight: FontWeight.bold));
       }
       if (going) {
         return Icon(Icons.done, color: Colors.white);
