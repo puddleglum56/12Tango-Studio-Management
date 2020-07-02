@@ -70,7 +70,7 @@ class EventCardState extends State<EventCard> {
       child: Text(capitalize(event.dance) + " Group Class",
           textAlign: TextAlign.left,
           style: TextStyle(
-              fontSize: 24, color: Colors.white, fontWeight: FontWeight.w800)),
+              fontSize: 20, color: Colors.white, fontWeight: FontWeight.w800)),
     );
 
     Widget timeHeader = new Padding(
@@ -78,7 +78,7 @@ class EventCardState extends State<EventCard> {
       child: Text("Time: " + TimeOfDay.fromDateTime(event.startDate).format(context)+"-"+TimeOfDay.fromDateTime(event.endDate).format(context),
           textAlign: TextAlign.left,
           style: TextStyle(
-              fontSize: 24, color: Colors.white, fontWeight: FontWeight.w800)),
+              fontSize: 20, color: Colors.white, fontWeight: FontWeight.w800)),
     );
 
     Widget levelHeader = new Padding(
@@ -86,7 +86,7 @@ class EventCardState extends State<EventCard> {
       child: Text("Level:",
           textAlign: TextAlign.left,
           style: TextStyle(
-              fontSize: 24, color: Colors.white, fontWeight: FontWeight.w800)),
+              fontSize: 20, color: Colors.white, fontWeight: FontWeight.w800)),
     );
 
     Widget spotsTakenHeader = Padding(
@@ -98,7 +98,7 @@ class EventCardState extends State<EventCard> {
               spotsAvailable.toString(),
           textAlign: TextAlign.left,
           style: TextStyle(
-              fontSize: 24, color: Colors.white, fontWeight: FontWeight.w800)),
+              fontSize: 20, color: Colors.white, fontWeight: FontWeight.w800)),
     );
 
     Widget goingButtonContent() {
