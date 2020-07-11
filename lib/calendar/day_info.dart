@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:strings/strings.dart';
 
 import '../types.dart';
@@ -36,7 +37,7 @@ Widget dayInfoBuilder(context, day, events) {
           child: Padding(
               padding: EdgeInsets.only(top: 10, left: 10, bottom: 20),
               child: Text(
-                "July " + day.day.toString(),
+                new DateFormat.MMMM().format(day) + " " + day.day.toString(),
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     fontSize: 30,

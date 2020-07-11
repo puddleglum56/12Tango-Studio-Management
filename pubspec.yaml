@@ -21,10 +21,11 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  gradient_app_bar: any
-  strings: any
   date_utils: any
+  gradient_app_bar: any
+  intl: any
   keyboard_visibility: any
+  strings: any
   tuple: any
   flutter:
     sdk: flutter
