@@ -105,7 +105,7 @@ class CalendarState extends State<Calendar> {
               title,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 5, fontWeight: FontWeight.bold, color: Colors.grey),
+                  fontSize: 5, fontWeight: FontWeight.bold, color: Colors.grey[600]),
             )));
   }
 
