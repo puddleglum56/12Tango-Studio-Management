@@ -30,6 +30,11 @@ Widget dayCellBuilder(context, DateTime day, events, bool isCurrentWeek) {
     cellContents.add(eventPillBuilder(event, isCurrentWeek));
   });
 
+  Color cellHeaderFontColor = Colors.black;
+  if (day.month != DateTime.now().month) {
+    cellHeaderFontColor = Colors.grey;
+  }
+
   Widget cellHeader = new FittedBox(
       fit: BoxFit.contain,
       child: Container(
@@ -37,7 +42,7 @@ Widget dayCellBuilder(context, DateTime day, events, bool isCurrentWeek) {
         day.day.toString(),
         textAlign: TextAlign.center,
         style: TextStyle(
-            fontSize: 14, color: Colors.black, fontWeight: FontWeight.w800),
+            fontSize: 14, color: cellHeaderFontColor, fontWeight: FontWeight.w800),
       )));
 
   cellContents.insert(0, cellHeader);
