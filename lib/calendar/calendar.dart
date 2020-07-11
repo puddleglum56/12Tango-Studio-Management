@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:date_utils/date_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../types.dart';
 import 'day_cell.dart';
@@ -173,7 +174,7 @@ class CalendarState extends State<Calendar> {
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
             child: Column(children: [
               Padding(
-                  child: Text('July',
+                  child: Text(new DateFormat.MMMM().format(today()),
                       style:
                           TextStyle(fontWeight: FontWeight.w800, fontSize: 20)),
                   padding: EdgeInsets.only(bottom: 10)),
