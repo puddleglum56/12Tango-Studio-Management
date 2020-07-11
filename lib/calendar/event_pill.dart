@@ -53,13 +53,13 @@ List<Color> getColorForDance(String dance, bool isCurrentWeek) {
 
 List<Color> getColorForDanceCurrentWeek(String dance) {
   Map colorForDance = {
-    "tango": [Colors.orange, Colors.orange[600]],
-    "salsa": [Colors.red,Colors.red[600]],
-    "hustle": [Colors.green,Colors.green[600]],
-    "waltz": [Colors.blue,Colors.blue[600]],
-    "samba": [Colors.amber,Colors.amber[600]],
-    "rumba": [Colors.purple,Colors.purple[600]],
-    "swing": [Colors.pink[200],Colors.pink[300]],
+    "tango": [Colors.orange[600], Colors.orange[700]],
+    "salsa": [Colors.red[600],Colors.red[700]],
+    "hustle": [Colors.green[600],Colors.green[700]],
+    "waltz": [Colors.blue[600],Colors.blue[700]],
+    "samba": [Colors.amber[600],Colors.amber[700]],
+    "rumba": [Colors.purple[600],Colors.purple[700]],
+    "swing": [Colors.pink[300],Colors.pink[400]],
   };
 
   return colorForDance[dance];
