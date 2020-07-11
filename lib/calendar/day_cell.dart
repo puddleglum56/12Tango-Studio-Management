@@ -9,7 +9,8 @@ class DayCell extends StatefulWidget {
   List<Event> events;
   bool isCurrentWeek;
 
-  DayCell({Key key, this.day, this.events, this.isCurrentWeek}) : super(key: key);
+  DayCell({Key key, this.day, this.events, this.isCurrentWeek})
+      : super(key: key);
 
   @override
   DayCellState createState() => DayCellState();
@@ -18,7 +19,8 @@ class DayCell extends StatefulWidget {
 class DayCellState extends State<DayCell> {
   @override
   Widget build(BuildContext context) {
-    return dayCellBuilder(context, widget.day, widget.events, widget.isCurrentWeek);
+    return dayCellBuilder(
+        context, widget.day, widget.events, widget.isCurrentWeek);
   }
 }
 
