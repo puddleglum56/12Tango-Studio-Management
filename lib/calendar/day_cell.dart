@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/state/events/models/event.dart';
 
-import '../types.dart';
 import 'day_info.dart';
 import 'event_pill.dart';
 

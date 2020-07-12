@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:hello_world/state/events/models/event.dart';
 import 'package:strings/strings.dart';
 
-import '../types.dart';
 import 'event_pill.dart';
 
 class EventCard extends StatefulWidget {

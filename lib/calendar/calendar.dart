@@ -2,9 +2,9 @@ import 'dart:math';
 
 import 'package:date_utils/date_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:hello_world/state/events/models/event.dart';
 import 'package:intl/intl.dart';
 
-import '../types.dart';
 import 'day_cell.dart';
 
 class Calendar extends StatefulWidget {

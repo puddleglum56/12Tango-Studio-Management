@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/state/events/models/event.dart';
 
-import '../types.dart';
 
 Widget eventPillBuilder(Event event, bool isCurrentWeek) {
   List<Widget> eventPillContent = [];
