@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:date_utils/date_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:hello_world/calendar/util.dart';
 import 'package:hello_world/state/events/models/event.dart';
 import 'package:intl/intl.dart';
 
@@ -20,33 +21,6 @@ class CalendarState extends State<Calendar> {
   void initState() {
     events = makeInitialEvents();
     super.initState();
-  }
-
-  DateTime makeDateTime(int year, int month, int day, int hour) {
-    return DateTime(year, month, day, hour, 0, 0, 0, 0);
-  }
-
-  Event makeRandomEvent(day) {
-    List<String> availableDances = [
-      "tango",
-      "salsa",
-      "hustle",
-      "waltz",
-      "samba",
-      "rumba",
-      "swing",
-    ];
-
-    List<String> availableMetals = ["bronze", "silver", "gold"];
-
-    List<int> availableLevels = [1, 2, 3, 4];
-
-    return new Event(
-        day,
-        day.add(new Duration(hours: 1)),
-        availableMetals[new Random().nextInt(availableMetals.length)],
-        availableLevels[new Random().nextInt(availableLevels.length)],
-        availableDances[new Random().nextInt(availableDances.length)]);
   }
 
   List<Event> makeInitialEvents() {
@@ -72,12 +46,6 @@ class CalendarState extends State<Calendar> {
 
   List<Event> getEventsForDay(DateTime day) {
     return events.where((event) => eventInDay(event, day)).toList();
-  }
-
-  bool eventInDay(Event event, DateTime day) {
-    // save this assertion for data validation
-    // assert(event.startDate.day == event.endDate.day);
-    return event.startDate.day == day.day;
   }
 
   List<TableRow> monthBuilder() {
