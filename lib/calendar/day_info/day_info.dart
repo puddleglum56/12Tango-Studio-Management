@@ -49,7 +49,7 @@ class DayInfoState extends State<DayInfo> {
                         color: Colors.black,
                         fontWeight: FontWeight.w800),
                   ),
-                  scheduleLessonButton,
+                  // scheduleLessonButton,
               ]))));
 
   infoContents.insert(0, infoHeader);
