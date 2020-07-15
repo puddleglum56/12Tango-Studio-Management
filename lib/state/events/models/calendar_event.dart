@@ -1,4 +1,4 @@
-class Event {
+class CalendarEvent {
   String name;
   String description;
   int level;
@@ -8,7 +8,7 @@ class Event {
   DateTime startDate;
   DateTime endDate;
 
-  Event(this.startDate, this.endDate, this.metal, this.level, this.dance);
+  CalendarEvent(this.startDate, this.endDate, this.metal, this.level, this.dance);
 
   void printProps() {
     print(startDate.toString());

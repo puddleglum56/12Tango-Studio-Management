@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/state/events/models/event.dart';
+import 'package:hello_world/state/events/app_state.dart';
+import 'package:hello_world/state/events/models/calendar_event.dart';
+import 'package:provider_for_redux/provider_for_redux.dart';
 
 import 'day_info.dart';
 import 'event_pill.dart';
 
 class DayCell extends StatefulWidget {
   DateTime day;
-  List<Event> events;
+  List<CalendarEvent> events;
   bool isCurrentWeek;
 
   DayCell({Key key, this.day, this.events, this.isCurrentWeek})
@@ -19,12 +21,15 @@ class DayCell extends StatefulWidget {
 class DayCellState extends State<DayCell> {
   @override
   Widget build(BuildContext context) {
-    return dayCellBuilder(
-        context, widget.day, widget.events, widget.isCurrentWeek);
+    return ReduxSelector<AppState, dynamic>(
+        selector: (context, state) => [state.calendarEventsState.events],
+        builder: (context, store, state, dispatch, model, child) =>
+            dayCellBuilder(
+                context, state.calendarEventsState.events, widget.day, widget.isCurrentWeek));
   }
 }
 
-Widget dayCellBuilder(context, DateTime day, events, bool isCurrentWeek) {
+Widget dayCellBuilder(context, List<CalendarEvent> events, DateTime day,  bool isCurrentWeek) {
   List<Widget> cellContents = [];
   events.forEach((event) {
     cellContents.add(eventPillBuilder(event, isCurrentWeek));
@@ -42,7 +47,9 @@ Widget dayCellBuilder(context, DateTime day, events, bool isCurrentWeek) {
         day.day.toString(),
         textAlign: TextAlign.center,
         style: TextStyle(
-            fontSize: 14, color: cellHeaderFontColor, fontWeight: FontWeight.w800),
+            fontSize: 14,
+            color: cellHeaderFontColor,
+            fontWeight: FontWeight.w800),
       )));
 
   cellContents.insert(0, cellHeader);

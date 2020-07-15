@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:date_utils/date_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hello_world/calendar/util.dart';
-import 'package:hello_world/state/events/models/event.dart';
+import 'package:hello_world/state/events/models/calendar_event.dart';
 import 'package:intl/intl.dart';
 
 import 'day_cell.dart';
@@ -15,7 +15,7 @@ class Calendar extends StatefulWidget {
 
 class CalendarState extends State<Calendar> {
   final calendarUtils = new Utils();
-  List<Event> events = new List<Event>();
+  List<CalendarEvent> events = new List<CalendarEvent>();
 
   @override
   void initState() {
@@ -23,28 +23,28 @@ class CalendarState extends State<Calendar> {
     super.initState();
   }
 
-  List<Event> makeInitialEvents() {
+  List<CalendarEvent> makeInitialEvents() {
     return [
-      new Event(makeDateTime(2020, 6, 1, 12), makeDateTime(2020, 6, 1, 13),
+      CalendarEvent(makeDateTime(2020, 6, 1, 12), makeDateTime(2020, 6, 1, 13),
           'bronze', 1, 'salsa'),
-      new Event(makeDateTime(2020, 6, 1, 13), makeDateTime(2020, 6, 1, 14),
+      CalendarEvent(makeDateTime(2020, 6, 1, 13), makeDateTime(2020, 6, 1, 14),
           'bronze', 2, 'waltz'),
-      new Event(makeDateTime(2020, 6, 3, 17), makeDateTime(2020, 6, 3, 18),
+      CalendarEvent(makeDateTime(2020, 6, 3, 17), makeDateTime(2020, 6, 3, 18),
           'bronze', 1, 'tango'),
-      new Event(makeDateTime(2020, 6, 4, 19), makeDateTime(2020, 6, 4, 19),
+      CalendarEvent(makeDateTime(2020, 6, 4, 19), makeDateTime(2020, 6, 4, 19),
           'bronze', 4, 'swing'),
-      new Event(makeDateTime(2020, 6, 9, 12), makeDateTime(2020, 6, 9, 13),
+      CalendarEvent(makeDateTime(2020, 6, 9, 12), makeDateTime(2020, 6, 9, 13),
           'silver', 1, 'rumba'),
-      new Event(makeDateTime(2020, 6, 12, 12), makeDateTime(2020, 6, 12, 13),
+      CalendarEvent(makeDateTime(2020, 6, 12, 12), makeDateTime(2020, 6, 12, 13),
           'bronze', 2, 'hustle'),
-      new Event(makeDateTime(2020, 6, 16, 12), makeDateTime(2020, 6, 17, 13),
+      CalendarEvent(makeDateTime(2020, 6, 16, 12), makeDateTime(2020, 6, 17, 13),
           'bronze', 3, 'salsa'),
-      new Event(makeDateTime(2020, 6, 16, 13), makeDateTime(2020, 6, 16, 14),
+      CalendarEvent(makeDateTime(2020, 6, 16, 13), makeDateTime(2020, 6, 16, 14),
           'gold', 1, 'waltz'),
     ];
   }
 
-  List<Event> getEventsForDay(DateTime day) {
+  List<CalendarEvent> getEventsForDay(DateTime day) {
     return events.where((event) => eventInDay(event, day)).toList();
   }
 
@@ -80,7 +80,7 @@ class CalendarState extends State<Calendar> {
   Widget dayBuilder(DateTime day, bool isCurrentWeek) {
     // return dayCellBuilder(day.day.toString(), getEventsForDay(day));
     int numEvents = new Random().nextInt(3) + 1;
-    List<Event> randomEvents = [];
+    List<CalendarEvent> randomEvents = [];
     for (int i = 0; i < numEvents; i++) {
       randomEvents.add(makeRandomEvent(day));
     }

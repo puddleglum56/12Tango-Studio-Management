@@ -1,13 +1,13 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:hello_world/state/events/models/event.dart';
+import 'package:hello_world/state/events/models/calendar_event.dart';
 import 'package:strings/strings.dart';
 
 import 'event_pill.dart';
 
 class EventCard extends StatefulWidget {
-  final Event event;
+  final CalendarEvent event;
 
   EventCard({Key key, this.event}) : super(key: key);
 
@@ -44,7 +44,7 @@ class EventCardState extends State<EventCard> {
     }
   }
 
-  Widget eventCardBuilder(context, Event event) {
+  Widget eventCardBuilder(context, CalendarEvent event) {
     List<Widget> levelInfo = [];
 
     Widget levelTick = new Container(

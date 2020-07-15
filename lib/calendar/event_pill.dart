@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/state/events/models/event.dart';
+import 'package:hello_world/state/events/models/calendar_event.dart';
 
 
-Widget eventPillBuilder(Event event, bool isCurrentWeek) {
+Widget eventPillBuilder(CalendarEvent event, bool isCurrentWeek) {
   List<Widget> eventPillContent = [];
 
   Widget levelTick = new Container(

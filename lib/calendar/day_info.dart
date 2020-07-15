@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:hello_world/state/events/models/event.dart';
+import 'package:hello_world/state/events/models/calendar_event.dart';
 import 'package:intl/intl.dart';
 import 'package:strings/strings.dart';
 
@@ -9,7 +9,7 @@ import 'event_card.dart';
 
 class DayInfo extends StatefulWidget {
   DateTime day;
-  List<Event> events;
+  List<CalendarEvent> events;
 
   DayInfo({Key key, this.day, this.events}) : super(key: key);
 
