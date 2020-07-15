@@ -32,7 +32,7 @@ class DayCellState extends State<DayCell> {
 
 Widget dayCellBuilder(context, CalendarEventsState calendarEventsState, DateTime day,  bool isCurrentWeek) {
   List<Widget> cellContents = [];
-  CalendarEventsState.selectEventsForDay(calendarEventsState, day: day).forEach((event) {
+  calendarEventsState.selectEventsForDay(day).forEach((event) {
     cellContents.add(eventPillBuilder(event, isCurrentWeek));
   });
 

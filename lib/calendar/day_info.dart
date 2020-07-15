@@ -29,7 +29,7 @@ class DayInfoState extends State<DayInfo> {
 
 Widget dayInfoBuilder(context, CalendarEventsState calendarEventsState, DateTime day) {
   List<Widget> infoContents = [];
-  CalendarEventsState.selectEventsForDay(calendarEventsState, day: day).forEach((event) {
+  calendarEventsState.selectEventsForDay(day).forEach((event) {
     infoContents.add(EventCard(event: event));
   });
 

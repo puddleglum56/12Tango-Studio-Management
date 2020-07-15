@@ -42,8 +42,8 @@ class CalendarEventsState {
   @override
   int get hashCode => events.hashCode;
 
-  static List<CalendarEvent> selectEventsForDay(CalendarEventsState state, {DateTime day}) 
-    => _selectEventsForDay(state.events)(day);
+  List<CalendarEvent> selectEventsForDay(DateTime day)
+    => _selectEventsForDay(this.events)(day);
 
   static final _selectEventsForDay = cache1_1(
     (List<CalendarEvent> events)
