@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hello_world/state/events/app_state.dart';
 import 'package:hello_world/state/events/models/calendar_event.dart';
+import 'package:hello_world/state/events/models/calendar_events_state.dart';
 import 'package:provider_for_redux/provider_for_redux.dart';
 
 import 'day_info.dart';
@@ -25,13 +26,13 @@ class DayCellState extends State<DayCell> {
         selector: (context, state) => [state.calendarEventsState.events],
         builder: (context, store, state, dispatch, model, child) =>
             dayCellBuilder(
-                context, state.calendarEventsState.events, widget.day, widget.isCurrentWeek));
+                context, state.calendarEventsState, widget.day, widget.isCurrentWeek));
   }
 }
 
-Widget dayCellBuilder(context, List<CalendarEvent> events, DateTime day,  bool isCurrentWeek) {
+Widget dayCellBuilder(context, CalendarEventsState calendarEventsState, DateTime day,  bool isCurrentWeek) {
   List<Widget> cellContents = [];
-  events.forEach((event) {
+  CalendarEventsState.selectEventsForDay(calendarEventsState, day: day).forEach((event) {
     cellContents.add(eventPillBuilder(event, isCurrentWeek));
   });
 
@@ -59,7 +60,7 @@ Widget dayCellBuilder(context, List<CalendarEvent> events, DateTime day,  bool i
         showBottomSheet(
             context: context,
             builder: (context) =>
-                Container(child: DayInfo(day: day, events: events)));
+                Container(child: DayInfo(day: day)));
       },
       child: Container(
           decoration: BoxDecoration(

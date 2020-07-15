@@ -1,17 +1,16 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:hello_world/state/events/models/calendar_event.dart';
+import 'package:hello_world/state/events/app_state.dart';
+import 'package:hello_world/state/events/models/calendar_events_state.dart';
 import 'package:intl/intl.dart';
-import 'package:strings/strings.dart';
+import 'package:provider_for_redux/provider_for_redux.dart';
 
 import 'event_card.dart';
 
 class DayInfo extends StatefulWidget {
   DateTime day;
-  List<CalendarEvent> events;
 
-  DayInfo({Key key, this.day, this.events}) : super(key: key);
+  DayInfo({Key key, this.day }) : super(key: key);
 
   @override
   DayInfoState createState() => DayInfoState();
@@ -20,13 +19,17 @@ class DayInfo extends StatefulWidget {
 class DayInfoState extends State<DayInfo> {
   @override
   Widget build(BuildContext context) {
-    return dayInfoBuilder(context, widget.day, widget.events);
+    return ReduxSelector<AppState, dynamic>(
+        selector: (context, state) => [state.calendarEventsState.events],
+        builder: (context, store, state, dispatch, model, child) =>
+            dayInfoBuilder(
+                context, state.calendarEventsState, widget.day));
   }
 }
 
-Widget dayInfoBuilder(context, day, events) {
+Widget dayInfoBuilder(context, CalendarEventsState calendarEventsState, DateTime day) {
   List<Widget> infoContents = [];
-  events.forEach((event) {
+  CalendarEventsState.selectEventsForDay(calendarEventsState, day: day).forEach((event) {
     infoContents.add(EventCard(event: event));
   });
 
