@@ -35,12 +35,12 @@ class CalendarState extends State<Calendar> {
           'bronze', 4, 'swing'),
       CalendarEvent(makeDateTime(2020, 6, 9, 12), makeDateTime(2020, 6, 9, 13),
           'silver', 1, 'rumba'),
-      CalendarEvent(makeDateTime(2020, 6, 12, 12), makeDateTime(2020, 6, 12, 13),
-          'bronze', 2, 'hustle'),
-      CalendarEvent(makeDateTime(2020, 6, 16, 12), makeDateTime(2020, 6, 17, 13),
-          'bronze', 3, 'salsa'),
-      CalendarEvent(makeDateTime(2020, 6, 16, 13), makeDateTime(2020, 6, 16, 14),
-          'gold', 1, 'waltz'),
+      CalendarEvent(makeDateTime(2020, 6, 12, 12),
+          makeDateTime(2020, 6, 12, 13), 'bronze', 2, 'hustle'),
+      CalendarEvent(makeDateTime(2020, 6, 16, 12),
+          makeDateTime(2020, 6, 17, 13), 'bronze', 3, 'salsa'),
+      CalendarEvent(makeDateTime(2020, 6, 16, 13),
+          makeDateTime(2020, 6, 16, 14), 'gold', 1, 'waltz'),
     ];
   }
 
@@ -73,7 +73,9 @@ class CalendarState extends State<Calendar> {
               title,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 5, fontWeight: FontWeight.bold, color: Colors.grey[600]),
+                  fontSize: 5,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey[600]),
             )));
   }
 
@@ -84,7 +86,8 @@ class CalendarState extends State<Calendar> {
     for (int i = 0; i < numEvents; i++) {
       randomEvents.add(makeRandomEvent(day));
     }
-    return DayCell(day: day, events: randomEvents, isCurrentWeek: isCurrentWeek);
+    return DayCell(
+        day: day, events: randomEvents, isCurrentWeek: isCurrentWeek);
   }
 
   TableRow weekdayNameBuilder() {
@@ -129,26 +132,29 @@ class CalendarState extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
+    return calendarBuilder();
+  }
+
+  Widget calendarBuilder() {
     return Scaffold(
         body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
               colors: [Colors.white, Colors.grey[100]],
               begin: Alignment.bottomLeft,
               end: Alignment.topRight,
-            )
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-            child: Column(children: [
-              Padding(
-                  child: Text(new DateFormat.MMMM().format(today()),
-                      style:
-                          TextStyle(fontWeight: FontWeight.w800, fontSize: 20)),
-                  padding: EdgeInsets.only(bottom: 10)),
-              Table(
-                children: monthBuilder(),
-              )
-            ]))));
+            )),
+            child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                child: Column(children: [
+                  Padding(
+                      child: Text(new DateFormat.MMMM().format(today()),
+                          style: TextStyle(
+                              fontWeight: FontWeight.w800, fontSize: 20)),
+                      padding: EdgeInsets.only(bottom: 10)),
+                  Table(
+                    children: monthBuilder(),
+                  )
+                ]))));
   }
 }
