@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hello_world/state/events/models/calendar_event.dart';
 import 'package:strings/strings.dart';
 
-import 'event_pill.dart';
+import '../day_cell/event_pill.dart';
 
 class EventCard extends StatefulWidget {
   final CalendarEvent event;

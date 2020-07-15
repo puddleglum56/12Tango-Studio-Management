@@ -6,7 +6,7 @@ import 'package:hello_world/calendar/util.dart';
 import 'package:hello_world/state/events/models/calendar_event.dart';
 import 'package:intl/intl.dart';
 
-import 'day_cell.dart';
+import 'day_cell/day_cell.dart';
 
 class Calendar extends StatefulWidget {
   @override

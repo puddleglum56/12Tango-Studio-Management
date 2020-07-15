@@ -4,7 +4,7 @@ import 'package:hello_world/state/events/models/calendar_event.dart';
 import 'package:hello_world/state/events/models/calendar_events_state.dart';
 import 'package:provider_for_redux/provider_for_redux.dart';
 
-import 'day_info.dart';
+import '../day_info/day_info.dart';
 import 'event_pill.dart';
 
 class DayCell extends StatefulWidget {
