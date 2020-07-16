@@ -17,6 +17,7 @@ class DayInfo extends StatefulWidget {
 }
 
 class DayInfoState extends State<DayInfo> {
+
   @override
   Widget build(BuildContext context) {
     return ReduxSelector<AppState, dynamic>(

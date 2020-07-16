@@ -60,6 +60,10 @@ List<Color> getColorForDanceCurrentWeek(String dance) {
     "samba": [Colors.amber[600],Colors.amber[700]],
     "rumba": [Colors.purple[600],Colors.purple[700]],
     "swing": [Colors.pink[300],Colors.pink[400]],
+    "bachata": [Colors.cyan[300],Colors.cyan],
+    "chacha": [Colors.lime[300],Colors.lime],
+    "foxtrot": [Colors.deepPurple[300],Colors.deepPurple],
+    "bolero": [Colors.deepOrange[300],Colors.deepOrange],
   };
 
   return colorForDance[dance];
@@ -74,6 +78,10 @@ List<Color> getColorForDanceOtherWeek(String dance) {
     "samba": [Colors.amber[300],Colors.amber[300]],
     "rumba": [Colors.purple[300],Colors.purple[300]],
     "swing": [Colors.pink[200],Colors.pink[200]],
+    "bachata": [Colors.cyan[200],Colors.cyan[300]],
+    "chacha": [Colors.lime[200],Colors.lime[300]],
+    "foxtrot": [Colors.deepPurple[200],Colors.deepPurple[300]],
+    "bolero": [Colors.deepOrange[200],Colors.deepOrange[300]],
   };
 
   return colorForDance[dance];
@@ -88,6 +96,10 @@ String getDanceAbbreviation(String dance) {
     "samba": "Sb",
     "rumba": "Rm",
     "swing": "Sw",
+    "bachata": "Bc",
+    "chacha": "Cc",
+    "foxtrot": "Ft",
+    "bolero": "Bo",
   };
   return abbreviationForDance[dance];
 }
@@ -105,6 +117,7 @@ Color getColorForMetalCurrentWeek(String metal) {
     "bronze": Colors.brown[500],
     "silver": Colors.grey[400],
     "gold": Colors.amber[400],
+    "beginner": Colors.blue[400],
   };
 
   return colorForMetal[metal];
@@ -115,6 +128,7 @@ Color getColorForMetalOtherWeek(String metal) {
     "bronze": Colors.brown[400],
     "silver": Colors.grey[300],
     "gold": Colors.amber[300],
+    "beginner": Colors.blue[300],
   };
 
   return colorForMetal[metal];

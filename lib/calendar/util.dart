@@ -21,9 +21,9 @@ CalendarEvent makeRandomEvent(day) {
 
     List<int> availableLevels = [1, 2, 3, 4];
 
-    return new CalendarEvent(
-        day,
-        day.add(new Duration(hours: 1)),
+    return CalendarEvent(
+        day.day,
+        day.hour,
         availableMetals[new Random().nextInt(availableMetals.length)],
         availableLevels[new Random().nextInt(availableLevels.length)],
         availableDances[new Random().nextInt(availableDances.length)]);

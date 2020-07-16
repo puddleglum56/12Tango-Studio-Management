@@ -17,33 +17,6 @@ class CalendarState extends State<Calendar> {
   final calendarUtils = new Utils();
   List<CalendarEvent> events = new List<CalendarEvent>();
 
-  @override
-  void initState() {
-    events = makeInitialEvents();
-    super.initState();
-  }
-
-  List<CalendarEvent> makeInitialEvents() {
-    return [
-      CalendarEvent(makeDateTime(2020, 6, 1, 12), makeDateTime(2020, 6, 1, 13),
-          'bronze', 1, 'salsa'),
-      CalendarEvent(makeDateTime(2020, 6, 1, 13), makeDateTime(2020, 6, 1, 14),
-          'bronze', 2, 'waltz'),
-      CalendarEvent(makeDateTime(2020, 6, 3, 17), makeDateTime(2020, 6, 3, 18),
-          'bronze', 1, 'tango'),
-      CalendarEvent(makeDateTime(2020, 6, 4, 19), makeDateTime(2020, 6, 4, 19),
-          'bronze', 4, 'swing'),
-      CalendarEvent(makeDateTime(2020, 6, 9, 12), makeDateTime(2020, 6, 9, 13),
-          'silver', 1, 'rumba'),
-      CalendarEvent(makeDateTime(2020, 6, 12, 12),
-          makeDateTime(2020, 6, 12, 13), 'bronze', 2, 'hustle'),
-      CalendarEvent(makeDateTime(2020, 6, 16, 12),
-          makeDateTime(2020, 6, 17, 13), 'bronze', 3, 'salsa'),
-      CalendarEvent(makeDateTime(2020, 6, 16, 13),
-          makeDateTime(2020, 6, 16, 14), 'gold', 1, 'waltz'),
-    ];
-  }
-
   List<CalendarEvent> getEventsForDay(DateTime day) {
     return events.where((event) => eventInDay(event, day)).toList();
   }
