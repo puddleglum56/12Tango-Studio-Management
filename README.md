@@ -4,5 +4,5 @@ WIP (Discontinued for now): Built using Flutter. App designed to manage dance cl
 
 Demo:
 
-<img src="https://github.com/puddleglum56/12Tango-Studio-Management/blob/master/demo.gif" alt="drawing" height="30vh"/>
+<img src="https://github.com/puddleglum56/12Tango-Studio-Management/blob/master/demo.gif" alt="demo" height="800"/>
 
